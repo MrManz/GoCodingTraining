@@ -32,3 +32,11 @@ func TestReverse(t *testing.T) {
 	assert.Equal(t, "ABCDE", reverse("EDCBA"))
 	assert.Equal(t, "Cat", reverse("taC"))
 }
+
+func TestPalindrome(t *testing.T) {
+	assert.Equal(t, true, isPalindrome("ABBA"))
+	assert.Equal(t, true, isPalindrome("Taco cat"))
+	assert.Equal(t, false, isPalindrome("aco cat"))
+	assert.Equal(t, false, isPalindrome("Cat"))
+	assert.Equal(t, false, isPalindrome("ADSA"))
+}

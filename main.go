@@ -17,6 +17,25 @@ func reverse(input string) string {
 
 }
 
+func delChar(s []rune, index int) []rune {
+	return append(s[0:index], s[index+1:]...)
+}
+
+func isPalindrome(input string) bool {
+	input = strings.ToUpper(input)
+	input = strings.ReplaceAll(input, " ", "")
+
+	if len(input)%2 != 0 {
+		input = string(delChar([]rune(input), len(input)/2))
+	}
+
+	if input[:len(input)/2] == reverse(input[len(input)/2:]) {
+		return true
+	} else {
+		return false
+	}
+}
+
 func hasUniqueCharacters(input string) bool {
 	var charSet [128]bool
 	for _, char := range input {
