@@ -12,3 +12,18 @@ func TestIsUnique(t *testing.T) {
 	assert.Equal(t, false, hasUniqueCharacters("aabb"))
 	assert.Equal(t, false, hasUniqueCharacters("cc"))
 }
+
+func TestIsPermutation(t *testing.T) {
+	assert.Equal(t, true, isPermutation("ABC", "CBA"))
+	assert.Equal(t, true, isPermutation("ABC", "BCA"))
+	assert.Equal(t, true, isPermutation("ABC", "bca"))
+	assert.Equal(t, false, isPermutation("ABC", "DCA"))
+	assert.Equal(t, false, isPermutation("ABC", "AAA"))
+	assert.Equal(t, false, isPermutation("ABC", "BAA"))
+}
+
+func TestReplaceSpacesInCharArray(t *testing.T) {
+	assert.Equal(t, []rune("Mr%20John%20Smith"), replaceSpacesInCharArray([]rune("Mr John Smith")))
+	assert.Equal(t, []rune("%20John%20Smith"), replaceSpacesInCharArray([]rune(" John Smith")))
+	assert.Equal(t, []rune("MrJohnSmith"), replaceSpacesInCharArray([]rune("MrJohnSmith")))
+}
