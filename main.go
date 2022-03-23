@@ -5,6 +5,18 @@ import (
 	"strings"
 )
 
+func reverse(input string) string {
+
+	var returnValue string
+
+	for _, value := range input {
+		returnValue = string(value) + returnValue
+	}
+
+	return returnValue
+
+}
+
 func hasUniqueCharacters(input string) bool {
 	var charSet [128]bool
 	for _, char := range input {

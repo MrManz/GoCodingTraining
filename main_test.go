@@ -27,3 +27,8 @@ func TestReplaceSpacesInCharArray(t *testing.T) {
 	assert.Equal(t, []rune("%20John%20Smith"), replaceSpacesInCharArray([]rune(" John Smith")))
 	assert.Equal(t, []rune("MrJohnSmith"), replaceSpacesInCharArray([]rune("MrJohnSmith")))
 }
+
+func TestReverse(t *testing.T) {
+	assert.Equal(t, "ABCDE", reverse("EDCBA"))
+	assert.Equal(t, "Cat", reverse("taC"))
+}
