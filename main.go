@@ -2,6 +2,7 @@ package GoCodingTraining
 
 import (
 	"reflect"
+	"strconv"
 	"strings"
 )
 
@@ -169,4 +170,36 @@ func replaceSpacesInCharArray(input []rune) []rune {
 		}
 	}
 	return output
+}
+
+func compressString(input string) string {
+	var compressedArr []rune
+	lastChar := ' '
+	var charCounter int64 = 0
+	for _, value := range input {
+		if lastChar != ' ' {
+			if value != lastChar {
+				compressedArr = addCompressedValue(compressedArr, lastChar, charCounter)
+				lastChar = value
+				charCounter = 1
+			} else {
+				charCounter++
+			}
+		} else {
+			lastChar = value
+			charCounter++
+		}
+	}
+	compressedArr = addCompressedValue(compressedArr, lastChar, charCounter)
+
+	return string(compressedArr)
+
+}
+
+func addCompressedValue(compressedArr []rune, lastChar int32, charCounter int64) []rune {
+	compressedArr = append(compressedArr, lastChar)
+	for _, value := range strconv.FormatInt(charCounter, 10) {
+		compressedArr = append(compressedArr, value)
+	}
+	return compressedArr
 }

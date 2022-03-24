@@ -58,3 +58,8 @@ func TestOneEditDifference(t *testing.T) {
 	assert.Equal(t, true, isOneEditDifference("pale", "bale"))
 	assert.Equal(t, false, isOneEditDifference("pale", "bake"))
 }
+
+func TestCompressString(t *testing.T) {
+	assert.Equal(t, "a2b1c5a3", compressString("aabcccccaaa"))
+	assert.Equal(t, "a1b1c5a3", compressString("abcccccaaa"))
+}
