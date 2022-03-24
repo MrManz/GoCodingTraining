@@ -7,15 +7,11 @@ import (
 )
 
 func reverse(input string) string {
-
 	var returnValue string
-
 	for _, value := range input {
 		returnValue = string(value) + returnValue
 	}
-
 	return returnValue
-
 }
 
 func delChar(s []rune, index int) []rune {
@@ -222,4 +218,8 @@ func transposeMatrix(matrix [][]int) [][]int {
 
 func rotateMatrix(matrix [][]int) [][]int {
 	return transposeMatrix(reverseMatrix(matrix))
+}
+
+func checkTwoSum() {
+
 }

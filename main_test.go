@@ -1,7 +1,9 @@
 package GoCodingTraining
 
 import (
+	"fmt"
 	"github.com/stretchr/testify/assert"
+	"strconv"
 	"testing"
 )
 
@@ -39,6 +41,14 @@ func TestPalindrome(t *testing.T) {
 	assert.Equal(t, false, isPalindrome("aco cat"))
 	assert.Equal(t, false, isPalindrome("Cat"))
 	assert.Equal(t, false, isPalindrome("ADSA"))
+}
+
+func TestBitFunctions(t *testing.T) {
+	n := int64(31)
+
+	fmt.Println(strconv.FormatInt(n, 2))
+	fmt.Println(rune('A') - 64)
+	fmt.Println(rune('Z') - 64)
 }
 
 func TestPermutationOfPalindrome(t *testing.T) {
