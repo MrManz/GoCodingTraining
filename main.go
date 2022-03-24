@@ -37,6 +37,55 @@ func clearBit(n int, pos uint) int {
 	return n
 }
 
+func isOneEditDifference(input1, input2 string) bool {
+	if input1 == input2 {
+		return true
+	}
+	runeArr2 := []rune(input2)
+	var runeArr1 []rune
+
+	for _, value := range input1 {
+		runeArr1 = append(runeArr1, value)
+	}
+
+	// Check if removal of one character possible
+	if checkInsert(runeArr1, runeArr2) {
+		return true
+	}
+
+	// Check if insert of one character possible
+	if checkInsert(runeArr2, runeArr1) {
+		return true
+	}
+
+	// Check if replace of one character possible
+	for i := 0; i < len(runeArr2); i++ {
+		runeArrCopy1 := make([]rune, len(runeArr1))
+		copy(runeArrCopy1, runeArr1)
+		runeArrCopy2 := make([]rune, len(runeArr2))
+		copy(runeArrCopy2, runeArr2)
+		stringWithOneElementRemoved1 := string(delChar(runeArrCopy1, i))
+		stringWithOneElementRemoved2 := string(delChar(runeArrCopy2, i))
+		if stringWithOneElementRemoved1 == stringWithOneElementRemoved2 {
+			return true
+		}
+	}
+
+	return false
+}
+
+func checkInsert(runeArr1 []rune, runeArr2 []rune) bool {
+	for i := 0; i < len(runeArr1); i++ {
+		runeArrCopy := make([]rune, len(runeArr1))
+		copy(runeArrCopy, runeArr1)
+		stringWithOneElementRemoved := string(delChar(runeArrCopy, i))
+		if stringWithOneElementRemoved == string(runeArr2) {
+			return true
+		}
+	}
+	return false
+}
+
 func isPermutationOfPalindrome(input string) bool {
 	input = strings.ToUpper(input)
 	input = strings.ReplaceAll(input, " ", "")

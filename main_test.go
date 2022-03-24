@@ -49,3 +49,12 @@ func TestPermutationOfPalindrome(t *testing.T) {
 	assert.Equal(t, false, isPermutationOfPalindrome("Cat"))
 	assert.Equal(t, false, isPermutationOfPalindrome("ADSA"))
 }
+
+func TestOneEditDifference(t *testing.T) {
+	assert.Equal(t, true, isOneEditDifference("pale", "pale"))
+	assert.Equal(t, true, isOneEditDifference("pale", "ple"))
+	assert.Equal(t, true, isOneEditDifference("pales", "pale"))
+	assert.Equal(t, true, isOneEditDifference("pale", "pales"))
+	assert.Equal(t, true, isOneEditDifference("pale", "bale"))
+	assert.Equal(t, false, isOneEditDifference("pale", "bake"))
+}
