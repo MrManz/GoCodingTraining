@@ -40,3 +40,12 @@ func TestPalindrome(t *testing.T) {
 	assert.Equal(t, false, isPalindrome("Cat"))
 	assert.Equal(t, false, isPalindrome("ADSA"))
 }
+
+func TestPermutationOfPalindrome(t *testing.T) {
+	assert.Equal(t, false, isPermutationOfPalindrome("ABCA"))
+	assert.Equal(t, true, isPermutationOfPalindrome("ABBA"))
+	assert.Equal(t, true, isPermutationOfPalindrome("Taco cat"))
+	assert.Equal(t, false, isPermutationOfPalindrome("aco cat"))
+	assert.Equal(t, false, isPermutationOfPalindrome("Cat"))
+	assert.Equal(t, false, isPermutationOfPalindrome("ADSA"))
+}

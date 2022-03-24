@@ -21,6 +21,44 @@ func delChar(s []rune, index int) []rune {
 	return append(s[0:index], s[index+1:]...)
 }
 
+func hasBit(n int, pos uint) bool {
+	val := n & (1 << pos)
+	return (val > 0)
+}
+
+func setBit(n int, pos uint) int {
+	n |= (1 << pos)
+	return n
+}
+
+func clearBit(n int, pos uint) int {
+	mask := ^(1 << pos)
+	n &= mask
+	return n
+}
+
+func isPermutationOfPalindrome(input string) bool {
+	input = strings.ToUpper(input)
+	input = strings.ReplaceAll(input, " ", "")
+
+	var charSet int
+	for _, value := range input {
+		normalizedValue := value - 64
+		if hasBit(charSet, uint(normalizedValue)) {
+			charSet = clearBit(charSet, uint(normalizedValue))
+		} else {
+			charSet = setBit(charSet, uint(normalizedValue))
+		}
+
+	}
+	mask := charSet - 1
+	if charSet&mask == 0 {
+		return true
+	} else {
+		return false
+	}
+}
+
 func isPalindrome(input string) bool {
 	input = strings.ToUpper(input)
 	input = strings.ReplaceAll(input, " ", "")
