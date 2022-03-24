@@ -203,3 +203,23 @@ func addCompressedValue(compressedArr []rune, lastChar int32, charCounter int64)
 	}
 	return compressedArr
 }
+
+func reverseMatrix(matrix [][]int) [][]int {
+	for i, j := 0, len(matrix)-1; i < j; i, j = i+1, j-1 {
+		matrix[i], matrix[j] = matrix[j], matrix[i]
+	}
+	return matrix
+}
+
+func transposeMatrix(matrix [][]int) [][]int {
+	for i := 0; i < len(matrix); i++ {
+		for j := 0; j < i; j++ {
+			matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+		}
+	}
+	return matrix
+}
+
+func rotateMatrix(matrix [][]int) [][]int {
+	return transposeMatrix(reverseMatrix(matrix))
+}

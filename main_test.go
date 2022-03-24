@@ -63,3 +63,8 @@ func TestCompressString(t *testing.T) {
 	assert.Equal(t, "a2b1c5a3", compressString("aabcccccaaa"))
 	assert.Equal(t, "a1b1c5a3", compressString("abcccccaaa"))
 }
+
+func TestReverseMatrix(t *testing.T) {
+	assert.Equal(t, [][]int{{7, 8, 9}, {4, 5, 6}, {1, 2, 3}}, reverseMatrix([][]int{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}))
+	assert.Equal(t, [][]int{{7, 4, 1}, {8, 5, 2}, {9, 6, 3}}, rotateMatrix([][]int{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}))
+}
