@@ -35,6 +35,35 @@ func clearBit(n int, pos uint) int {
 	return n
 }
 
+func matchingStrings(strings []string, queries []string) []int32 {
+	m := make(map[string]int)
+	var result []int32
+
+	for _, value := range strings {
+		m[value]++
+	}
+
+	for _, query := range queries {
+		result = append(result, int32(m[query]))
+	}
+	return result
+
+}
+
+func divisibleSumPairs(n int32, k int32, ar []int32) int32 {
+	counter := 0
+
+	for i := 0; i < int(n); i++ {
+		for j := i + 1; j < int(n); j++ {
+			if (ar[i]+ar[j])%k == 0 {
+				counter++
+			}
+		}
+	}
+	return int32(counter)
+
+}
+
 func isOneEditDifference(input1, input2 string) bool {
 	if input1 == input2 {
 		return true
