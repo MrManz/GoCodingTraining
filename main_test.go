@@ -78,3 +78,8 @@ func TestReverseMatrix(t *testing.T) {
 	assert.Equal(t, [][]int{{7, 8, 9}, {4, 5, 6}, {1, 2, 3}}, reverseMatrix([][]int{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}))
 	assert.Equal(t, [][]int{{7, 4, 1}, {8, 5, 2}, {9, 6, 3}}, rotateMatrix([][]int{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}))
 }
+
+func TestCamelCase(t *testing.T) {
+	testStrings := []string{"S;M;makeCoffe()", "S;M;doStuff()", "S;C;OrangeHighlighter"}
+	assert.Equal(t, []string{"make coffe", "do stuff", "orange highlighter"}, formatCamelCase(testStrings))
+}

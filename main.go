@@ -4,6 +4,7 @@ import (
 	"reflect"
 	"strconv"
 	"strings"
+	"unicode"
 )
 
 func reverse(input string) string {
@@ -220,6 +221,33 @@ func rotateMatrix(matrix [][]int) [][]int {
 	return transposeMatrix(reverseMatrix(matrix))
 }
 
-func checkTwoSum() {
+func formatCamelCase(input []string) []string {
+	var result []string
+	for _, value := range input {
+		var formattedWord string
+		stringWithoutCommand := value[4:]
+		if value[0] == 'S' {
+			var finalArr []rune
+			for i := 0; i < len(stringWithoutCommand); i++ {
+				if unicode.IsUpper(rune(stringWithoutCommand[i])) {
+					if i != 0 {
+						finalArr = append(finalArr, ' ')
+					}
+					finalArr = append(finalArr, unicode.ToLower(rune(stringWithoutCommand[i])))
+				} else {
+					finalArr = append(finalArr, rune(stringWithoutCommand[i]))
+				}
+			}
+			formattedWord = string(finalArr)
+			formattedWord = strings.ReplaceAll(formattedWord, "(", "")
+			formattedWord = strings.ReplaceAll(formattedWord, ")", "")
+			result = append(result, formattedWord)
 
+		} else {
+			if value[3] == 'M' {
+
+			}
+		}
+	}
+	return result
 }
