@@ -97,3 +97,13 @@ func TestMatchingStrings(t *testing.T) {
 	var arrQueries = []string{"aba", "xzxb", "ab"}
 	assert.Equal(t, []int32{2, 1, 0}, matchingStrings(arrStrings, arrQueries))
 }
+
+func TestLonelyInts(t *testing.T) {
+	var arr = []int32{1, 1, 2, 5, 5}
+	assert.Equal(t, int32(2), lonelyInteger(arr))
+}
+
+func TestGradeStudents(t *testing.T) {
+	var arr = []int32{84, 29, 57}
+	assert.Equal(t, []int32{85, 29, 57}, gradingStudents(arr))
+}
