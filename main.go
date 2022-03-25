@@ -35,6 +35,37 @@ func clearBit(n int, pos uint) int {
 	return n
 }
 
+func lonelyInteger(a []int32) int32 {
+	m := make(map[int32]int32)
+
+	for _, value := range a {
+		m[value]++
+	}
+
+	for key, value := range m {
+		if value == 1 {
+			return key
+		}
+	}
+
+	return 0
+
+}
+
+func gradingStudents(grades []int32) []int32 {
+	var result []int32
+	for _, grade := range grades {
+		if grade >= 38 {
+			if grade%5 >= 3 {
+				grade = grade + (5 - (grade % 5))
+			}
+		}
+		result = append(result, grade)
+	}
+	return result
+
+}
+
 func matchingStrings(strings []string, queries []string) []int32 {
 	m := make(map[string]int)
 	var result []int32
