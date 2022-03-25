@@ -111,3 +111,8 @@ func TestGradeStudents(t *testing.T) {
 func TestDiagonalDifference(t *testing.T) {
 	assert.Equal(t, int32(2), diagonalDifference([][]int32{{1, 2, 3}, {4, 5, 6}, {9, 8, 9}}))
 }
+
+func TestReverseRow(t *testing.T) {
+	assert.Equal(t, [][]int32{{9, 2, 3}, {4, 5, 6}, {1, 8, 9}}, reverseRow([][]int32{{1, 2, 3}, {4, 5, 6}, {9, 8, 9}}, 0))
+	assert.Equal(t, [][]int32{{7, 2, 3, 3}, {2, 5, 6, 3}, {4, 8, 9, 3}, {1, 8, 9, 3}}, reverseRow([][]int32{{1, 2, 3, 3}, {4, 5, 6, 3}, {2, 8, 9, 3}, {7, 8, 9, 3}}, 0))
+}

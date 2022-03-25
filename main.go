@@ -36,6 +36,24 @@ func clearBit(n int, pos uint) int {
 	return n
 }
 
+func reverseRow(matrix [][]int32, columnIndex int) [][]int32 {
+	var returnMatrix = make([][]int32, len(matrix))
+	for i := range returnMatrix {
+		returnMatrix[i] = make([]int32, len(matrix))
+	}
+
+	for i, row := range matrix {
+		for j, value := range row {
+			if columnIndex == j {
+				returnMatrix[i][j] = matrix[len(matrix)-1-i][j]
+			} else {
+				returnMatrix[i][j] = value
+			}
+		}
+	}
+	return returnMatrix
+}
+
 func diagonalDifference(arr [][]int32) int32 {
 	var forwardSum int32 = 0
 	var backwardSum int32 = 0
