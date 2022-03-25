@@ -251,7 +251,3 @@ func formatCamelCase(input []string) []string {
 	}
 	return result
 }
-
-func formatCamelCase(input string) string {
-	return ""
-}
