@@ -1,6 +1,7 @@
 package GoCodingTraining
 
 import (
+	"math"
 	"reflect"
 	"strconv"
 	"strings"
@@ -33,6 +34,25 @@ func clearBit(n int, pos uint) int {
 	mask := ^(1 << pos)
 	n &= mask
 	return n
+}
+
+func diagonalDifference(arr [][]int32) int32 {
+	var forwardSum int32 = 0
+	var backwardSum int32 = 0
+
+	for i, line := range arr {
+		for j, value := range line {
+			if i == j {
+				forwardSum += value
+			}
+			if i+j == len(arr)-1 {
+				backwardSum += value
+			}
+		}
+	}
+
+	return int32(math.Abs(float64(forwardSum - backwardSum)))
+
 }
 
 func lonelyInteger(a []int32) int32 {

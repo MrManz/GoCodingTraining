@@ -107,3 +107,7 @@ func TestGradeStudents(t *testing.T) {
 	var arr = []int32{84, 29, 57}
 	assert.Equal(t, []int32{85, 29, 57}, gradingStudents(arr))
 }
+
+func TestDiagonalDifference(t *testing.T) {
+	assert.Equal(t, int32(2), diagonalDifference([][]int32{{1, 2, 3}, {4, 5, 6}, {9, 8, 9}}))
+}
