@@ -223,3 +223,7 @@ func rotateMatrix(matrix [][]int) [][]int {
 func checkTwoSum() {
 
 }
+
+func formatCamelCase(input string) string {
+	return ""
+}
