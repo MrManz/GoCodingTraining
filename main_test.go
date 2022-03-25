@@ -82,4 +82,6 @@ func TestReverseMatrix(t *testing.T) {
 func TestCamelCase(t *testing.T) {
 	testStrings := []string{"S;M;makeCoffe()", "S;M;doStuff()", "S;C;OrangeHighlighter"}
 	assert.Equal(t, []string{"make coffe", "do stuff", "orange highlighter"}, formatCamelCase(testStrings))
+	testStrings = []string{"C;V;mobile phone", "C;C;coffee machine", "C;M;white sheet of paper"}
+	assert.Equal(t, []string{"mobilePhone", "CoffeeMachine", "whiteSheetOfPaper()"}, formatCamelCase(testStrings))
 }

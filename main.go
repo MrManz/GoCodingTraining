@@ -244,9 +244,32 @@ func formatCamelCase(input []string) []string {
 			result = append(result, formattedWord)
 
 		} else {
-			if value[3] == 'M' {
+			var finalArr []rune
+			var spaceOccurred bool
+
+			for _, char := range stringWithoutCommand {
+				if char == ' ' {
+					spaceOccurred = true
+				} else {
+					if spaceOccurred {
+						finalArr = append(finalArr, unicode.ToUpper(char))
+						spaceOccurred = false
+					} else {
+						finalArr = append(finalArr, char)
+					}
+
+				}
 
 			}
+			if value[2] == 'M' {
+				finalArr = append(finalArr, '(')
+				finalArr = append(finalArr, ')')
+			} else if value[2] == 'C' {
+				finalArr[0] = unicode.ToUpper(finalArr[0])
+			}
+
+			formattedWord = string(finalArr)
+			result = append(result, formattedWord)
 		}
 	}
 	return result
