@@ -121,3 +121,9 @@ func TestSetMatrixRowsColumnsZero(t *testing.T) {
 	assert.Equal(t, [][]int32{{0, 0, 0}, {4, 0, 6}, {9, 0, 9}}, setMatrixRowsColumnsZero([][]int32{{1, 0, 3}, {4, 5, 6}, {9, 8, 9}}))
 	assert.Equal(t, [][]int32{{1, 2, 3, 0}, {0, 0, 0, 0}, {9, 8, 9, 0}}, setMatrixRowsColumnsZero([][]int32{{1, 2, 3, 4}, {4, 5, 6, 0}, {9, 8, 9, 7}}))
 }
+
+func TestIsRotatedString(t *testing.T) {
+	assert.Equal(t, true, isRotatedString("waterbottle", "erbottlewat"))
+	assert.Equal(t, false, isRotatedString("waterbottles", "erbottlewat"))
+
+}

@@ -50,6 +50,10 @@ func setColumnToZero(matrix [][]int32, j int) [][]int32 {
 	return matrix
 }
 
+func isRotatedString(input1, input2 string) bool {
+	return strings.Contains(input1+input1, input2)
+}
+
 func setMatrixRowsColumnsZero(matrix [][]int32) [][]int32 {
 	rowZero := make([]bool, len(matrix))
 	columnZero := make([]bool, len(matrix[0]))
