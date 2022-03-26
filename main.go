@@ -4,6 +4,7 @@ import (
 	"container/list"
 	"math"
 	"reflect"
+	"sort"
 	"strconv"
 	"strings"
 	"unicode"
@@ -35,6 +36,40 @@ func clearBit(n int, pos uint) int {
 	mask := ^(1 << pos)
 	n &= mask
 	return n
+}
+
+type sortable32array []int32
+
+func (f sortable32array) Len() int {
+	return len(f)
+}
+
+func (f sortable32array) Less(i, j int) bool {
+	return f[i] < f[j]
+}
+
+func (f sortable32array) Swap(i, j int) {
+	f[i], f[j] = f[j], f[i]
+}
+
+func twoArrays(k int32, A []int32, B []int32) string {
+	var sortableA sortable32array = A
+	var sortableB sortable32array = B
+
+	sort.Sort(sortableA)
+	sort.Sort(sortableB)
+
+	for i, j := 0, len(sortableB)-1; i < j; i, j = i+1, j-1 {
+		sortableB[i], sortableB[j] = sortableB[j], sortableB[i]
+	}
+
+	for i := range sortableA {
+		if !(sortableA[i]+sortableB[i] >= k) {
+			return "NO"
+		}
+	}
+	return "YES"
+
 }
 
 func setRowToZero(matrix [][]int32, index int) [][]int32 {

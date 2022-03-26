@@ -145,3 +145,12 @@ func TestDeleteDuplicatesFromList(t *testing.T) {
 	}
 	assert.Equal(t, []int{2, 3, 1}, values)
 }
+
+func TestTwoArrays(t *testing.T) {
+	var arr1 = []int32{2, 1, 3}
+	var arr2 = []int32{7, 8, 9}
+	assert.Equal(t, "YES", twoArrays(10, arr1, arr2))
+	arr1 = []int32{1, 2, 2, 1}
+	arr2 = []int32{3, 3, 3, 4}
+	assert.Equal(t, "NO", twoArrays(10, arr1, arr2))
+}
