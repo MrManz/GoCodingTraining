@@ -1,6 +1,7 @@
 package GoCodingTraining
 
 import (
+	"container/list"
 	"fmt"
 	"github.com/stretchr/testify/assert"
 	"strconv"
@@ -126,4 +127,21 @@ func TestIsRotatedString(t *testing.T) {
 	assert.Equal(t, true, isRotatedString("waterbottle", "erbottlewat"))
 	assert.Equal(t, false, isRotatedString("waterbottles", "erbottlewat"))
 
+}
+
+func TestDeleteDuplicatesFromList(t *testing.T) {
+	l := list.New()
+	l.PushFront(1)
+	l.PushFront(2)
+	l.PushFront(3)
+	l.PushFront(1)
+	l.PushFront(1)
+
+	l = deleteDuplicatesFromList(l)
+
+	var values []int
+	for e := l.Front(); e != nil; e = e.Next() {
+		values = append(values, e.Value.(int))
+	}
+	assert.Equal(t, []int{2, 3, 1}, values)
 }

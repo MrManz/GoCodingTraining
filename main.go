@@ -1,6 +1,7 @@
 package GoCodingTraining
 
 import (
+	"container/list"
 	"math"
 	"reflect"
 	"strconv"
@@ -52,6 +53,20 @@ func setColumnToZero(matrix [][]int32, j int) [][]int32 {
 
 func isRotatedString(input1, input2 string) bool {
 	return strings.Contains(input1+input1, input2)
+}
+
+func deleteDuplicatesFromList(l *list.List) *list.List {
+	bitMap := make(map[any]bool)
+	returnList := list.New()
+
+	for e := l.Front(); e != nil; e = e.Next() {
+		if !bitMap[e.Value] {
+			returnList.PushFront(e.Value)
+			bitMap[e.Value] = true
+		}
+	}
+
+	return returnList
 }
 
 func setMatrixRowsColumnsZero(matrix [][]int32) [][]int32 {
