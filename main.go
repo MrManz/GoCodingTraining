@@ -22,11 +22,11 @@ func delChar(s []rune, index int) []rune {
 
 func hasBit(n int, pos uint) bool {
 	val := n & (1 << pos)
-	return (val > 0)
+	return val > 0
 }
 
 func setBit(n int, pos uint) int {
-	n |= (1 << pos)
+	n |= 1 << pos
 	return n
 }
 
@@ -34,6 +34,48 @@ func clearBit(n int, pos uint) int {
 	mask := ^(1 << pos)
 	n &= mask
 	return n
+}
+
+func setRowToZero(matrix [][]int32, index int) [][]int32 {
+	for j := range matrix[index] {
+		matrix[index][j] = 0
+	}
+	return matrix
+}
+
+func setColumnToZero(matrix [][]int32, j int) [][]int32 {
+	for i := range matrix {
+		matrix[i][j] = 0
+	}
+	return matrix
+}
+
+func setMatrixRowsColumnsZero(matrix [][]int32) [][]int32 {
+	rowZero := make([]bool, len(matrix))
+	columnZero := make([]bool, len(matrix[0]))
+
+	for i, row := range matrix {
+		for j, value := range row {
+			if value == 0 {
+				rowZero[i] = true
+				columnZero[j] = true
+			}
+		}
+	}
+
+	for i := range matrix {
+		if rowZero[i] {
+			matrix = setRowToZero(matrix, i)
+		}
+	}
+
+	for j := range matrix[0] {
+		if columnZero[j] {
+			matrix = setColumnToZero(matrix, j)
+		}
+	}
+
+	return matrix
 }
 
 func reverseRow(matrix [][]int32, columnIndex int) [][]int32 {
