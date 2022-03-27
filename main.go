@@ -99,7 +99,6 @@ func maximumPerimeterTriangle(sticks []int32) []int32 {
 		return []int32{-1}
 	} else {
 		sort.Sort(returnArray)
-		fmt.Println(returnArray)
 		return returnArray
 	}
 
