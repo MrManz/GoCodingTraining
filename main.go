@@ -2,7 +2,6 @@ package GoCodingTraining
 
 import (
 	"container/list"
-	"fmt"
 	"math"
 	"reflect"
 	"sort"
@@ -86,7 +85,6 @@ func maximumPerimeterTriangle(sticks []int32) []int32 {
 
 	for i := 0; i < len(sortableArray)-2; i++ {
 		if (sortableArray[i]+sortableArray[i+1] > sortableArray[i+2]) && (sortableArray[i]+sortableArray[i+2] > sortableArray[i+1]) && (sortableArray[i+1]+sortableArray[i+2] > sortableArray[i]) {
-			fmt.Println(int64(sortableArray[i]) + int64(sortableArray[i+1]) + int64(sortableArray[i+2]))
 			if int64(sortableArray[i])+int64(sortableArray[i+1])+int64(sortableArray[i+2]) > int64(maxPerimeter) {
 				returnArray = nil
 				returnArray = append(returnArray, sortableArray[i], sortableArray[i+1], sortableArray[i+2])
