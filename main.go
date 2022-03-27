@@ -38,23 +38,23 @@ func clearBit(n int, pos uint) int {
 	return n
 }
 
-type sortable32array []int32
+type sortableInt32array []int32
 
-func (f sortable32array) Len() int {
+func (f sortableInt32array) Len() int {
 	return len(f)
 }
 
-func (f sortable32array) Less(i, j int) bool {
+func (f sortableInt32array) Less(i, j int) bool {
 	return f[i] < f[j]
 }
 
-func (f sortable32array) Swap(i, j int) {
+func (f sortableInt32array) Swap(i, j int) {
 	f[i], f[j] = f[j], f[i]
 }
 
 func twoArrays(k int32, A []int32, B []int32) string {
-	var sortableA sortable32array = A
-	var sortableB sortable32array = B
+	var sortableA sortableInt32array = A
+	var sortableB sortableInt32array = B
 
 	sort.Sort(sortableA)
 	sort.Sort(sortableB)
@@ -84,6 +84,29 @@ func hackerrankBirthday(s []int32, d int32, m int32) int32 {
 		}
 	}
 	return int32(segmentCounter)
+}
+
+func migratoryBirds(arr []int32) int32 {
+	var m = make(map[int32]int32)
+
+	for _, value := range arr {
+		m[value]++
+	}
+
+	highestCount := int32(0)
+	var highestKeys sortableInt32array
+	for key, value := range m {
+		if value > highestCount {
+			highestKeys = nil
+			highestKeys = append(highestKeys, key)
+			highestCount = value
+		} else if value == highestCount {
+			highestKeys = append(highestKeys, key)
+		}
+	}
+	sort.Sort(highestKeys)
+	return highestKeys[0]
+
 }
 
 func setRowToZero(matrix [][]int32, index int) [][]int32 {

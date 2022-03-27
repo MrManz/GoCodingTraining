@@ -158,3 +158,7 @@ func TestTwoArrays(t *testing.T) {
 func TestHackerRankBirthday(t *testing.T) {
 	assert.Equal(t, int32(2), hackerrankBirthday([]int32{1, 2, 1, 3, 2}, 3, 2))
 }
+
+func TestMigratoryBirds(t *testing.T) {
+	assert.Equal(t, int32(4), migratoryBirds([]int32{1, 4, 4, 4, 5, 3}))
+}
