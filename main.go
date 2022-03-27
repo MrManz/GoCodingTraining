@@ -2,6 +2,7 @@ package GoCodingTraining
 
 import (
 	"container/list"
+	"fmt"
 	"math"
 	"reflect"
 	"sort"
@@ -69,6 +70,38 @@ func twoArrays(k int32, A []int32, B []int32) string {
 		}
 	}
 	return "YES"
+
+}
+
+func maximumPerimeterTriangle(sticks []int32) []int32 {
+	maxPerimeter := int64(0)
+	var returnArray sortableInt32array
+	var sortableArray sortableInt32array = sticks
+
+	sort.Sort(sortableArray)
+
+	for i, j := 0, len(sortableArray)-1; i < j; i, j = i+1, j-1 {
+		sortableArray[i], sortableArray[j] = sortableArray[j], sortableArray[i]
+	}
+
+	for i := 0; i < len(sortableArray)-2; i++ {
+		if (sortableArray[i]+sortableArray[i+1] > sortableArray[i+2]) && (sortableArray[i]+sortableArray[i+2] > sortableArray[i+1]) && (sortableArray[i+1]+sortableArray[i+2] > sortableArray[i]) {
+			fmt.Println(int64(sortableArray[i]) + int64(sortableArray[i+1]) + int64(sortableArray[i+2]))
+			if int64(sortableArray[i])+int64(sortableArray[i+1])+int64(sortableArray[i+2]) > int64(maxPerimeter) {
+				returnArray = nil
+				returnArray = append(returnArray, sortableArray[i], sortableArray[i+1], sortableArray[i+2])
+				maxPerimeter = int64(sortableArray[i]) + int64(sortableArray[i+1]) + int64(sortableArray[i+2])
+			}
+		}
+	}
+
+	if maxPerimeter == int64(0) {
+		return []int32{-1}
+	} else {
+		sort.Sort(returnArray)
+		fmt.Println(returnArray)
+		return returnArray
+	}
 
 }
 
