@@ -72,6 +72,20 @@ func twoArrays(k int32, A []int32, B []int32) string {
 
 }
 
+func hackerrankBirthday(s []int32, d int32, m int32) int32 {
+	segmentCounter := 0
+	for i := 0; i < len(s)-int(m)+1; i++ {
+		sumSegment := s[i]
+		for offset := 1; offset < int(m); offset++ {
+			sumSegment += s[i+offset]
+		}
+		if sumSegment == d {
+			segmentCounter++
+		}
+	}
+	return int32(segmentCounter)
+}
+
 func setRowToZero(matrix [][]int32, index int) [][]int32 {
 	for j := range matrix[index] {
 		matrix[index][j] = 0

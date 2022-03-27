@@ -154,3 +154,7 @@ func TestTwoArrays(t *testing.T) {
 	arr2 = []int32{3, 3, 3, 4}
 	assert.Equal(t, "NO", twoArrays(10, arr1, arr2))
 }
+
+func TestHackerRankBirthday(t *testing.T) {
+	assert.Equal(t, int32(2), hackerrankBirthday([]int32{1, 2, 1, 3, 2}, 3, 2))
+}
