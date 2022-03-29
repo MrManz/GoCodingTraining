@@ -52,6 +52,23 @@ func (f sortableInt32array) Swap(i, j int) {
 	f[i], f[j] = f[j], f[i]
 }
 
+func min(a, b int32) int32 {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+func pageCount(n int32, p int32) int32 {
+	pagesInBook := p / 2
+	totalPages := n / 2
+
+	fromFront := pagesInBook
+	fromBack := totalPages - pagesInBook
+	return min(fromBack, fromFront)
+
+}
+
 func twoArrays(k int32, A []int32, B []int32) string {
 	var sortableA sortableInt32array = A
 	var sortableB sortableInt32array = B
