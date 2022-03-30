@@ -97,7 +97,7 @@ func maximumPerimeterTriangle(sticks []int32) []int32 {
 
 	for i := 0; i < len(sticks)-2; i++ {
 		if (sticks[i]+sticks[i+1] > sticks[i+2]) && (sticks[i]+sticks[i+2] > sticks[i+1]) && (sticks[i+1]+sticks[i+2] > sticks[i]) {
-			if int64(sticks[i])+int64(sticks[i+1])+int64(sticks[i+2]) > int64(maxPerimeter) {
+			if int64(sticks[i])+int64(sticks[i+1])+int64(sticks[i+2]) > maxPerimeter {
 				returnArray = nil
 				returnArray = append(returnArray, sticks[i], sticks[i+1], sticks[i+2])
 				maxPerimeter = int64(sticks[i]) + int64(sticks[i+1]) + int64(sticks[i+2])
