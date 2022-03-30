@@ -10,7 +10,7 @@ import (
 	"unicode"
 )
 
-func reverse(input string) string {
+func reverseString(input string) string {
 	var returnValue string
 	for _, value := range input {
 		returnValue = string(value) + returnValue
@@ -74,11 +74,7 @@ func twoArrays(k int32, A []int32, B []int32) string {
 	var sortableB sortableInt32array = B
 
 	sort.Sort(sortableA)
-	sort.Sort(sortableB)
-
-	for i, j := 0, len(sortableB)-1; i < j; i, j = i+1, j-1 {
-		sortableB[i], sortableB[j] = sortableB[j], sortableB[i]
-	}
+	sort.Sort(sort.Reverse(sortableB))
 
 	for i := range sortableA {
 		if !(sortableA[i]+sortableB[i] >= k) {
@@ -391,7 +387,7 @@ func isPalindrome(input string) bool {
 		input = string(delChar([]rune(input), len(input)/2))
 	}
 
-	if input[:len(input)/2] == reverse(input[len(input)/2:]) {
+	if input[:len(input)/2] == reverseString(input[len(input)/2:]) {
 		return true
 	} else {
 		return false
