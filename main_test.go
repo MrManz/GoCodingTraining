@@ -32,8 +32,8 @@ func TestReplaceSpacesInCharArray(t *testing.T) {
 }
 
 func TestReverse(t *testing.T) {
-	assert.Equal(t, "ABCDE", reverse("EDCBA"))
-	assert.Equal(t, "Cat", reverse("taC"))
+	assert.Equal(t, "ABCDE", reverseString("EDCBA"))
+	assert.Equal(t, "Cat", reverseString("taC"))
 }
 
 func TestPalindrome(t *testing.T) {
