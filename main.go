@@ -59,6 +59,11 @@ func min(a, b int32) int32 {
 	return b
 }
 
+func pickingNumbers(a []int32) int32 {
+	// Write your code here
+	return 0
+}
+
 func pageCount(n int32, p int32) int32 {
 	pagesInBook := p / 2
 	totalPages := n / 2

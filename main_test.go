@@ -170,3 +170,7 @@ func TestMaximumPerimeterTriangle(t *testing.T) {
 func TestPageCount(t *testing.T) {
 	assert.Equal(t, int32(1), pageCount(5, 3))
 }
+
+func TestPickingNumbers(t *testing.T) {
+	assert.Equal(t, int32(5), pickingNumbers([]int32{1, 1, 2, 2, 4, 4, 5, 5, 5}))
+}
